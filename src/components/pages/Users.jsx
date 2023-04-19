@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard"
-import Checkbox from '@mui/material/Checkbox';
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const users = [...Array(10).keys()].map(((val) => {
@@ -20,6 +20,7 @@ const users = [...Array(10).keys()].map(((val) => {
 
 
 export const Users = () => {
+
   return (
     <SContainer>
       <h2>ユーザー一覧</h2>
