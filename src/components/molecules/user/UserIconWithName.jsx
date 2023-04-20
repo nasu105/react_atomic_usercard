@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import React, { useContext } from 'react';
-import { UserContext } from "../../../providers/UserProvider";
+import React, { useContext, memo } from 'react';
+// import { UserContext } from "../../../providers/UserProvider";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../store/userState";
 
-
-export const UserIconWithName = (props) => {
+export const UserIconWithName = React.memo((props) => {
   const { image, name } = props;
-  const { userInfo } = useContext(UserContext);
+  // const { userInfo } = useContext(UserContext);
+  const userInfo = useRecoilValue(userState);
   const isAdmin = userInfo ? userInfo.isAdmin : false;
+
 
   return (
     <SContainer>
@@ -15,7 +18,7 @@ export const UserIconWithName = (props) => {
       {isAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   text-align: center;
